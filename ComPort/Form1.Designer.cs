@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnSendConfig = new System.Windows.Forms.Button();
             this.tboxDataOut = new System.Windows.Forms.TextBox();
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -119,34 +121,54 @@
             // cboxParityBits
             // 
             this.cboxParityBits.FormattingEnabled = true;
+            this.cboxParityBits.Items.AddRange(new object[] {
+            "None",
+            "Odd",
+            "Even"});
             this.cboxParityBits.Location = new System.Drawing.Point(89, 126);
             this.cboxParityBits.Name = "cboxParityBits";
             this.cboxParityBits.Size = new System.Drawing.Size(161, 21);
             this.cboxParityBits.TabIndex = 2;
+            this.cboxParityBits.Text = "None";
             // 
             // cboxStopBits
             // 
             this.cboxStopBits.FormattingEnabled = true;
+            this.cboxStopBits.Items.AddRange(new object[] {
+            "One",
+            "Two"});
             this.cboxStopBits.Location = new System.Drawing.Point(89, 100);
             this.cboxStopBits.Name = "cboxStopBits";
             this.cboxStopBits.Size = new System.Drawing.Size(161, 21);
             this.cboxStopBits.TabIndex = 3;
+            this.cboxStopBits.Text = "One";
+            this.cboxStopBits.SelectedIndexChanged += new System.EventHandler(this.cboxStopBits_SelectedIndexChanged);
             // 
             // cboxDataBits
             // 
             this.cboxDataBits.FormattingEnabled = true;
+            this.cboxDataBits.Items.AddRange(new object[] {
+            "5",
+            "6",
+            "7",
+            "8"});
             this.cboxDataBits.Location = new System.Drawing.Point(89, 73);
             this.cboxDataBits.Name = "cboxDataBits";
             this.cboxDataBits.Size = new System.Drawing.Size(161, 21);
             this.cboxDataBits.TabIndex = 4;
+            this.cboxDataBits.Text = "8";
             // 
             // cboxBaudRate
             // 
             this.cboxBaudRate.FormattingEnabled = true;
+            this.cboxBaudRate.Items.AddRange(new object[] {
+            "115200",
+            "9600"});
             this.cboxBaudRate.Location = new System.Drawing.Point(89, 46);
             this.cboxBaudRate.Name = "cboxBaudRate";
             this.cboxBaudRate.Size = new System.Drawing.Size(161, 21);
             this.cboxBaudRate.TabIndex = 5;
+            this.cboxBaudRate.Text = "115200";
             // 
             // cboxComPort
             // 
@@ -193,6 +215,7 @@
             this.btnOpen.TabIndex = 0;
             this.btnOpen.Text = "OPEN";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnSendConfig
             // 
@@ -251,6 +274,7 @@
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnSendConfig;
         private System.Windows.Forms.TextBox tboxDataOut;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 
